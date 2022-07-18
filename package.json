@@ -1,0 +1,29 @@
+{
+  "name": "fastify-knex",
+  "version": "1.0.0",
+  "description": "LITE boilerplate for fastify with typescript and knex.",
+  "main": "dist/index.js",
+  "scripts": {
+    "prestart": "npm run build",
+    "build": "rimraf dist && tsc",
+    "database-build": "knex migrate:latest && npx knex seed:run",
+    "dev": "npm run build && concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+  },
+  "keywords": [],
+  "author": "webdev201",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "fastify": "^4.2.0",
+    "knex": "^2.1.0",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "concurrently": "^7.2.2",
+    "nodemon": "^2.0.19",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  }
+}
